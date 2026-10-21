@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101426">
+<title>DealNova — Smart Shopping</title>
+<style>
+:root{--bg:#0b1020;--panel:#141b30;--panel2:#1b2440;--text:#f4f6ff;--muted:#aab3cc;--accent:#8b7cff;--green:#47d7a0;--line:#2b3554;--orange:#ffbd69}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#111831 0%,var(--bg) 55%);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text)}
+.wrap{max-width:900px;margin:auto;padding:18px 14px 40px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 20px}.brand{display:flex;align-items:center;gap:10px}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#4cdcb0);display:grid;place-items:center;color:#11162b;font-weight:900;font-size:22px}.brand h1{font-size:21px;margin:0;letter-spacing:-.5px}.brand small{color:var(--muted);display:block;font-size:11px}.badge{font-size:11px;border:1px solid #4a5273;border-radius:999px;padding:7px 10px;color:#d5d9f2}
+.hero{padding:23px 18px;border:1px solid #313a5b;border-radius:23px;background:radial-gradient(circle at top right,#3a326b 0,transparent 42%),linear-gradient(130deg,#1b2440,#11172b);box-shadow:0 16px 45px #0003}
+.kicker{color:#b8b0ff;text-transform:uppercase;letter-spacing:1.5px;font-size:10px;font-weight:800}.hero h2{font-size:29px;line-height:1.12;letter-spacing:-1px;margin:10px 0}.hero p{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 17px}
+.search{display:flex;gap:8px}.search input{min-width:0;flex:1;background:#0b1020;border:1px solid #3a4568;color:white;padding:14px;border-radius:13px;font-size:14px;outline:none}.search button,.primary{border:0;background:var(--accent);color:white;font-weight:800;border-radius:13px;padding:0 16px;cursor:pointer}
+.notice{margin:14px 0 20px;border:1px solid #695533;background:#302819;color:#ffe1ae;border-radius:12px;padding:11px 12px;font-size:11px;line-height:1.5}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:24px 2px 12px}.section-head h3{margin:0;font-size:17px}.section-head span{font-size:11px;color:var(--muted)}
+.filters{display:flex;gap:8px;overflow:auto;padding:1px 0 10px}.chip{border:1px solid var(--line);background:#141b30;color:#c8d0e8;padding:9px 13px;border-radius:999px;white-space:nowrap;font-size:12px;cursor:pointer}.chip.active{background:#8b7cff24;border-color:var(--accent);color:#ddd9ff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:13px;min-width:0}.product-art{height:105px;border-radius:12px;background:linear-gradient(135deg,#202a49,#11182d);display:grid;place-items:center;font-size:43px;margin-bottom:12px}.category{font-size:10px;color:#b9b0ff;text-transform:uppercase;letter-spacing:1px}.card h4{font-size:14px;margin:5px 0 8px;line-height:1.3}.price-row{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.price{font-size:20px;font-weight:850}.old{font-size:11px;color:#8e99b5;text-decoration:line-through}.tiny{font-size:10px;color:var(--muted);margin-top:4px}.compare{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}.store{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:5px 0;gap:8px}.store b{font-size:12px}.lowest{color:var(--green)}.coupon{display:flex;gap:8px;align-items:center;background:#182e30;border:1px dashed #3a8d78;border-radius:10px;padding:9px;margin-top:10px}.coupon strong{font-size:11px;color:#a9ffdc}.coupon span{font-size:10px;color:#b7d7d1;display:block;margin-top:2px}.coupon button{margin-left:auto;border:1px solid #4a9e88;background:transparent;color:#c7ffed;border-radius:8px;padding:6px 8px;font-size:10px;cursor:pointer}
+.empty{display:none;color:var(--muted);text-align:center;padding:30px 10px}.foot{color:#8791ad;font-size:10px;line-height:1.6;text-align:center;margin:24px 6px}.bottom{position:sticky;bottom:8px;margin-top:20px;display:flex;justify-content:center}.bottom span{background:#1b2340eF;border:1px solid #3b4566;padding:10px 14px;border-radius:999px;font-size:11px;color:#d3d9f0;box-shadow:0 8px 25px #0005}
+@media(min-width:650px){.wrap{padding:25px}.hero{padding:30px}.hero h2{font-size:38px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.product-art{height:125px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo">D</div><div><h1>DealNova</h1><small>REAL PRICES. SMARTER SAVINGS.</small></div></div>
+    <div class="badge">INDIA • BETA</div>
+  </header>
+  <section class="hero">
+    <div class="kicker">Your smarter shopping companion</div>
+    <h2>Find the deal.<br>Skip the guesswork.</h2>
+    <p>Compare offers, explore coupons, and find the price that makes sense — all in one place.</p>
+    <div class="search"><input id="search" placeholder="Search phones, headphones..." aria-label="Search products"><button id="searchBtn">Search</button></div>
+  </section>
+  <div class="notice"><b>Prototype preview:</b> The products and prices below are sample demo data, not live retailer prices. Coupon codes are not verified. Live data will be connected only through authorised sources.</div>
+  <div class="section-head"><h3>Explore deals</h3><span id="count">4 demo items</span></div>
+  <div class="filters">
+    <button class="chip active" data-cat="All">All</button><button class="chip" data-cat="Phones">Phones</button><button class="chip" data-cat="Audio">Audio</button><button class="chip" data-cat="Accessories">Accessories</button>
+  </div>
+  <div class="grid" id="products"></div>
+  <div class="empty" id="empty">No demo products found. Try another search.</div>
+  <div class="section-head"><h3>How DealNova works</h3><span>Coming next</span></div>
+  <div class="card" style="line-height:1.7;font-size:12px;color:#c7cfe5">
+    <div>🔎 <b>Search products</b> — find the item you want.</div>
+    <div>⚖️ <b>Compare stores</b> — compare price, delivery and eligible discounts.</div>
+    <div>🎟️ <b>Check coupons</b> — see conditions and last-checked status.</div>
+    <div>🔗 <b>Visit retailer</b> — buy directly from the store through an approved link.</div>
+  </div>
+  <div class="foot">DealNova is an independent prototype and is not affiliated with Amazon or Flipkart. Store names and prices in this preview are illustrative. Final prices, delivery fees, and coupon eligibility must be confirmed on the retailer's checkout page.</div>
+  <div class="bottom"><span>Prototype v0.1 · Search works · Demo data only</span></div>
+</div>
+<script>
+const items=[
+{id:1,name:"Nova X Smartphone (Demo)",cat:"Phones",icon:"📱",amazon:18999,flipkart:18499,old:21999,offer:"DEMO10",desc:"Illustrative coupon only"},
+{id:2,name:"Wireless Headphones (Demo)",cat:"Audio",icon:"🎧",amazon:2499,flipkart:2699,old:3499,offer:"SAMPLE5",desc:"Illustrative coupon only"},
+{id:3,name:"Fast Charger 30W (Demo)",cat:"Accessories",icon:"🔌",amazon:799,flipkart:749,old:999,offer:"TESTDEAL",desc:"Illustrative coupon only"},
+{id:4,name:"Bluetooth Speaker (Demo)",cat:"Audio",icon:"🔊",amazon:1599,flipkart:1499,old:1999,offer:"",desc:"No demo coupon"}
+];
+let activeCat="All";
+const money=n=>"₹"+n.toLocaleString("en-IN");
+function render(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const filtered=items.filter(p=>(activeCat==="All"||p.cat===activeCat)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));
+ document.getElementById("count").textContent=filtered.length+" demo item"+(filtered.length===1?"":"s");
+ document.getElementById("empty").style.display=filtered.length?"none":"block";
+ document.getElementById("products").innerHTML=filtered.map(p=>{
+ const low=Math.min(p.amazon,p.flipkart);
+ return `<article class="card"><div class="product-art">${p.icon}</div><div class="category">${p.cat} · DEMO</div><h4>${p.name}</h4><div class="price-row"><span class="price">${money(low)}</span><span class="old">${money(p.old)}</span></div><div class="tiny">Lowest sample price · not live</div><div class="compare"><div class="store"><span>Amazon (sample)</span><b class="${p.amazon===low?'lowest':''}">${money(p.amazon)}</b></div><div class="store"><span>Flipkart (sample)</span><b class="${p.flipkart===low?'lowest':''}">${money(p.flipkart)}</b></div></div>${p.offer?`<div class="coupon"><div><strong>${p.offer}</strong><span>${p.desc}</span></div><button onclick="alert('This is a demo code, not a working coupon. Live coupon verification is not connected yet.')">Details</button></div>`:""}</article>`;
+ }).join("");
+}
+document.getElementById("searchBtn").addEventListener("click",render);
+document.getElementById("search").addEventListener("input",render);
+document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeCat=b.dataset.cat;render()}));
+render();
+</script>
+</body>
+</html>
